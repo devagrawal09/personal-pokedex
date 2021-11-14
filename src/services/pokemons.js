@@ -9,3 +9,7 @@ export const getMorePokemons = (offset) => {
     response.json()
   );
 };
+
+export const getPokemon = (pokemonId) => {
+  return fetch(`${URL}${pokemonId}`).then((response) => response.json());
+};

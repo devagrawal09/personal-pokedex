@@ -1,0 +1,28 @@
+.btn {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background-color: $red;
+  color: $black;
+
+  &__text {
+    font-size: 2rem;
+    @include absCenter;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($black, 0.6);
+    cursor: pointer;
+    background-color: $dark-red;
+    color: $white;
+  }
+
+  &:active,
+  &:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($black, 0.35);
+  }
+}

@@ -1,20 +1,18 @@
-import AllPokemon from './containers/AllPokemon';
-import Pokemon from './components/Pokemon';
-import Login from './components/Login';
-import Signup from './components/Signup';
-import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import AllPokemon from "./containers/AllPokemon";
+import Pokemon from "./components/Pokemon";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+// import Navbar from "./components/Navbar";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const App = () => {
   return (
-    <div className='App'>
+    <div className="App">
       <Router>
-        <Navbar />
+        {/* <Navbar /> */}
         <Switch>
-          <Route path='/pokemon/:id' component={Pokemon} />
-          <Route path='/login' component={Login} />
-          <Route path='/signup' component={Signup} />
-          <Route path='/' component={AllPokemon} />
+          <Route path="/:id" component={Pokemon} />
+          <Route path="/" component={AllPokemon} />
         </Switch>
       </Router>
     </div>

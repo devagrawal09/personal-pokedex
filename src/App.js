@@ -1,9 +1,9 @@
-import AllPokemon from "./components/Pokedex";
+import Pokedex from "./components/Pokedex";
 
 const App = () => {
   return (
     <div className="App">
-      <AllPokemon />
+      <Pokedex />
     </div>
   );
 };

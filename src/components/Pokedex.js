@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PokemonCard from "./PokemonCard";
 import Header from "./Header";
+import Footer from "./Footer";
 import { getPokemons, getMorePokemons } from "../services/pokemons";
 
 const Pokedex = () => {
@@ -13,14 +14,14 @@ const Pokedex = () => {
     });
   }, []);
 
-  const morePokemon = () => {
+  const next = () => {
     getMorePokemons(count + 19).then((data) => {
       setPokemons(data);
       setCount((prevCount) => prevCount + 20);
     });
   };
 
-  const lessPokemon = () => {
+  const back = () => {
     getMorePokemons(count - 21).then((data) => {
       setPokemons(data);
       setCount((prevCount) => prevCount - 20);
@@ -32,17 +33,10 @@ const Pokedex = () => {
       <Header />
       <div className="cards">
         {pokemons.results?.map((pokemon, index) => (
-          <PokemonCard key={index} {...pokemon} id={count + index} />
+          <PokemonCard key={index} name={pokemon.name} />
         ))}
       </div>
-      <div className="footer">
-        <div className="btn" onClick={lessPokemon}>
-          <h3 className="btn__text">Back</h3>
-        </div>
-        <div className="btn" onClick={morePokemon}>
-          <h3 className="btn__text">Next</h3>
-        </div>
-      </div>
+      <Footer back={back} next={next} />
     </>
   );
 };

@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { getPokemon } from "../services/pokemons";
 
-const PokemonCard = (props) => {
+const PokemonCard = ({ name }) => {
   const [pokemon, setPokemon] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
-    getPokemon(`/${props.name}`).then((data) => {
+    getPokemon(`/${name}`).then((data) => {
       setPokemon(data);
       setIsLoading(false);
     });
-  }, [props.name]);
+  }, [name]);
 
   return (
     <div className="card">
@@ -19,7 +19,7 @@ const PokemonCard = (props) => {
         <div className="card__loading" />
       ) : (
         <>
-          <h3 className="card__title">{pokemon.name}</h3>
+          <h3 className="card__title">{name}</h3>
           <h4 className="card__subtitle">
             {pokemon.types?.map((type) => type.type.name).join(`, `)}
           </h4>

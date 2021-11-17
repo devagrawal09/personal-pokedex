@@ -10,6 +10,6 @@ export const getMorePokemons = (offset) => {
   );
 };
 
-export const getPokemon = (pokemonId) => {
-  return fetch(`${URL}${pokemonId}`).then((response) => response.json());
+export const getPokemon = (pokemonName) => {
+  return fetch(`${URL}${pokemonName}`).then((response) => response.json());
 };

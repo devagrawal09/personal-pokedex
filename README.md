@@ -2,14 +2,15 @@
 
 This project is for the React Dojo workshop given to the IT Student Association on Nov 17th, 2021.
 
-## Available Scripts
+## Installation 
 
 In the project directory, you can run:
 
 ### `npm install`
 
-Installs all the required dependencies using npm, the default package manager used for javascript projects.
+This will install React and all the other dependencies needed to run this application.
 
+## Development
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -17,6 +18,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any build or lint errors in the console.
+
+## Production
 
 ### `npm run build`
 

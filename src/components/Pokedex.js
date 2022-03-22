@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PokemonCard from "./PokemonCard";
+import PokemonPopup from "./PokemonPopup";
 import Header from "./Header";
 import Footer from "./Footer";
 import { getPokemons, getMorePokemons } from "../services/pokemons";
@@ -7,6 +8,7 @@ import { getPokemons, getMorePokemons } from "../services/pokemons";
 const Pokedex = () => {
   const [pokemons, setPokemons] = useState([]);
   const [count, setCount] = useState(1);
+  const [selectedPokemon, selectPokemon] = useState(null);
 
   useEffect(() => {
     getPokemons().then((data) => {
@@ -33,9 +35,17 @@ const Pokedex = () => {
       <Header />
       <div className="cards">
         {pokemons.results?.map((pokemon, index) => (
-          <PokemonCard key={index} name={pokemon.name} />
+          <PokemonCard
+            key={index}
+            name={pokemon.name}
+            onClick={() => selectPokemon(pokemon)}
+          />
         ))}
       </div>
+      <PokemonPopup
+        selectedPokemon={selectedPokemon}
+        close={() => selectPokemon(null)}
+      />
       <Footer back={back} next={next} />
     </>
   );

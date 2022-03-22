@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { getPokemon } from "../services/pokemons";
 
-const PokemonCard = ({ name }) => {
+const PokemonCard = ({ name, onClick }) => {
   const [pokemon, setPokemon] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
-    getPokemon(`/${name}`).then((data) => {
+    getPokemon(name).then((data) => {
       setPokemon(data);
       setIsLoading(false);
     });
   }, [name]);
 
   return (
-    <div className="card">
+    <div className="card" onClick={onClick}>
       {isLoading ? (
         <div className="card__loading" />
       ) : (

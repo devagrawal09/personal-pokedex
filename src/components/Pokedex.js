@@ -5,7 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { getPokemons } from "../services/pokemons";
 
-const pageLimit = 20;
+const pageLimit = 9;
 
 const Pokedex = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -23,7 +23,7 @@ const Pokedex = () => {
   };
 
   const back = () => {
-    setPage((prevPage) => prevPage - 1);
+    setPage((prevPage) => (prevPage ? prevPage - 1 : 0));
   };
 
   return (
@@ -42,7 +42,7 @@ const Pokedex = () => {
         selectedPokemon={selectedPokemon}
         close={() => selectPokemon(null)}
       />
-      <Footer back={back} next={next} />
+      <Footer back={back} next={next} page={page} />
     </>
   );
 };

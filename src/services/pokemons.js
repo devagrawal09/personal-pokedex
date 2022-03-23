@@ -7,5 +7,5 @@ export const getPokemons = (offset, limit) => {
 };
 
 export const getPokemon = (pokemonName) => {
-  return fetch(`${URL}/${pokemonName}`).then((response) => response.json());
+  return fetch(`${URL}${pokemonName}`).then((response) => response.json());
 };

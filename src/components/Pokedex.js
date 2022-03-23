@@ -14,7 +14,7 @@ const Pokedex = () => {
 
   useEffect(() => {
     getPokemons(page * pageLimit, pageLimit).then((data) => {
-      setPokemons(data);
+      setPokemons(data.results);
     });
   }, [page]);
 
@@ -30,7 +30,7 @@ const Pokedex = () => {
     <>
       <Header />
       <div className="cards">
-        {pokemons.results?.map((pokemon, index) => (
+        {pokemons?.map((pokemon, index) => (
           <PokemonCard
             key={index}
             name={pokemon.name}
